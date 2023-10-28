@@ -1,0 +1,15 @@
+.wrapper {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(-45deg, rgb(100, 100, 255), rgb(255, 100, 100));
+}
+
+.map {
+	width: 70%;
+	height: 80%;
+	border-radius: 20px;
+	overflow: hidden;
+}

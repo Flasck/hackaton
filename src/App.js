@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import { Map, Polygon, TypeSelector, YMaps } from "@pbe/react-yandex-maps"
+import styles from "./app.module.css"
+import { poligons } from "./poligons"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	console.log(poligons.length)
+	return (
+		<div className={styles.wrapper}>
+			<YMaps>
+				<Map
+					className={styles.map}
+					state={{
+						center: [58.01, 56.22],
+						zoom: 10,
+					}}
+					options={{
+						restrictMapArea: [
+							[61.87, 51.517],
+							[56.03, 59.76],
+						],
+					}}
+				>
+					<Polygon
+						geometry={poligons}
+						options={{
+							fillColor: "#fff",
+							strokeColor: "#001BFF",
+							opacity: 0.3,
+							strokeWidth: 3,
+							strokeStyle: "solid",
+						}}
+					/>
+					<TypeSelector options={{ float: "right" }} />
+				</Map>
+			</YMaps>
+		</div>
+	)
 }
 
-export default App;
+export default App
